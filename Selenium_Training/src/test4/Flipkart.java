@@ -1,0 +1,32 @@
+package test4;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class Flipkart {
+	public static void main(String[] args) throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver", "D:\\eclipse\\java Progaram\\src\\Selenium_Training\\Drivers\\chromedriver.exe");
+		WebDriver driver =  new ChromeDriver();
+		driver.get("https://www.flipkart.com/");
+		driver.manage().window().maximize();
+		driver.findElement(By.xpath("//button[@class='_2KpZ6l _2doB4z']")).click();
+		WebElement electronics = driver.findElement(By.xpath("(//div[@class='xtXmba'])[5]"));
+		Actions action = new Actions(driver);
+		action.moveToElement(electronics).build().perform();
+		
+		/*WebElement job_by_title = driver.findElement(By.xpath("(//a[@href='javascript:void(0);'])[1]"));
+		Actions action2 = new Actions(driver);
+		action2.moveToElement(job_by_title).build().perform();
+		
+		WebElement java_developer_job = driver.findElement(By.xpath("//a[@href='https://www.monsterindia.com/search/java-developer-jobs']"));
+		Actions action3 = new Actions(driver);
+		action3.moveToElement(java_developer_job).click().build().perform();
+		
+		Thread.sleep(3000);
+		driver.close();*/
+	}
+
+}
